@@ -3,21 +3,6 @@ name: Caller for Multilingual WF
 on:
   workflow_dispatch:
     inputs:
-      working-directory:
-        description: 'working directory for App code'
-        required: true
-        type: string
-        default: .
-      framework:
-        description: 'The type of framework or service'
-        required: true
-        default: azure-functions
-        type: string
-      function-app-name:
-        description: 'name of the azure function app'
-        required: true
-        type: string 
-        default: test-app0099
       version:
         description: 'The version to deploy'
         required: false
@@ -28,7 +13,6 @@ jobs:
   caller-workflow:
     uses: missAnkita/Reusable-Workflows/.github/workflows/deploy-angular.yml@feature/test-multilingual
     with:
-      working-directory: .
-      framework: ${{ github.event.inputs.framework }}
-      function-app-name: ${{ github.event.inputs.function-app-name }}
+      #working-directory: .
+      #function-app-name: ${{ github.event.inputs.function-app-name }}
       version: ${{ github.event.inputs.version }}
