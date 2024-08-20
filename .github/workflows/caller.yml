@@ -18,6 +18,11 @@ on:
         required: true
         type: string 
         default: test-app0099
+      version:
+        description: 'The version to deploy'
+        required: false
+        type: string
+        default: 'latest'
 
 jobs:
   caller-workflow:
@@ -26,3 +31,4 @@ jobs:
       working-directory: .
       framework: ${{ github.event.inputs.framework }}
       function-app-name: ${{ github.event.inputs.function-app-name }}
+      version: ${{ github.event.inputs.version }}
